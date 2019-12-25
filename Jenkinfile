@@ -1,0 +1,21 @@
+node {
+
+   stage('SCM') {
+      // git clone
+          git 'https://github.com/mydevops1678/spring-petclinic.git'
+   }
+
+   stage ('build the packages') {
+      // mvn package
+          sh 'mvn clean package'
+   }
+
+
+
+   stage ('archival') {
+     // archiving artifacts
+         archive 'target/*.jar'
+   }
+
+}
+
